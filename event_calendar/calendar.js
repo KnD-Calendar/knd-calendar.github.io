@@ -35,12 +35,6 @@ document.addEventListener('DOMContentLoaded', function() {
 function generateEvents(startDate, endDate) {
     var events = [];
 
-    // Element
-//    var monthElementEvents = generateElementMonths(startDate, endDate);
-//    for (const event in monthElementEvents) {
-//        events.push(monthElementEvents[event]);
-//    }
-
     // Raid: every other friday starting at 19:00 UTC, goes for 51 hours
     var raidEvents = generateRaidDates(startDate, endDate);
     for (const event in raidEvents) {
@@ -112,7 +106,8 @@ function generateRaidDates(startDate, endDate) {
             title: 'Raid',
             start: new Date(raidDate.setUTCHours(19, 0, 0)),
             end: new Date(addDays(raidDate, 2).setUTCHours(22, 0, 0)),
-            color: "#001219"
+            color: "#001219",
+            url: "../events/raid"
         });
         raidDate.setDate(raidDate.getDate() + 14);
     }
@@ -139,7 +134,8 @@ function generateWarDates(startDate, endDate) {
             title: 'War',
             start: new Date(warDate.setUTCHours(19, 0, 0)),
             end: new Date(addDays(warDate, 2).setUTCHours(22, 0, 0)),
-            color: "#9b2226"
+            color: "#9b2226",
+            url: "../events/war"
         });
         warDate.setDate(warDate.getDate() + 14);
     }
@@ -166,7 +162,8 @@ function generateBlitzRaidDates(startDate, endDate) {
             title: 'Blitz Raid',
             start: new Date(blitzRaidDate.setUTCHours(19, 0, 0)),
             end: new Date(addDays(blitzRaidDate, 1).setUTCHours(22, 0, 0)),
-            color: "#0a9396"
+            color: "#0a9396",
+            url: "../events/blitz_raid"
         });
         blitzRaidDate.setDate(blitzRaidDate.getDate() + 14);
     }
@@ -194,7 +191,8 @@ function generateBlitzWarDates(startDate, endDate) {
             title: 'Blitz War',
             start: new Date(blitzWarDate.setUTCHours(19, 0, 0)),
             end: new Date(addDays(blitzWarDate, 1).setUTCHours(22, 0, 0)),
-            color: "#bb3e03"
+            color: "#bb3e03",
+            url: "../events/blitz_war"
         });
         blitzWarDate.setDate(blitzWarDate.getDate() + 14);
     }
@@ -221,7 +219,8 @@ function generateHeroicDates(startDate, endDate) {
             title: 'Heroic',
             start: new Date(heroicDate.setUTCHours(19, 0, 0)),
             end: new Date(addDays(heroicDate, 7).setUTCHours(19, 0, 0)),
-            color: "#e9c46a"
+            color: "#e9c46a",
+            url: "../events/heroic"
         });
         heroicDate.setDate(heroicDate.getDate() + 14);
     }
