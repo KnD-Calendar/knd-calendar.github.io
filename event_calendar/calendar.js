@@ -7,24 +7,31 @@ document.addEventListener('DOMContentLoaded', function() {
             timeZone: 'UTC',
             themeSystem: 'bootstrap5',
             headerToolbar: {
-            left: 'prev,next today',
-            center: 'title',
-            right: 'multiMonthYear,dayGridMonth,timeGridWeek,timeGridDay,listMonth'
-        },
-        multiMonthMaxColumns: 2,
-        timeZone: "local",
-        weekNumbers: true,
-        dayMaxEvents: true,
-        events: function (fetchInfo, successCallback, failureCallback) {
-            var generatedEvents = generateEvents(fetchInfo.start, fetchInfo.end);
-            successCallback(generatedEvents);
-        },
-        dayCellDidMount: function (event) {
-            var elementMonth = ((((event.date.getYear()*12+event.date.getMonth()))%5)+1)
-            var monthClass = 'knd-event-month-' + elementMonth;
-            event.el.classList.add(monthClass)
-        },
-    });
+                left: 'prev,today,next',
+                center: 'title',
+                right: 'multiMonthYear,dayGridMonth,timeGridWeek,listMonth'
+            },
+            buttonText: {
+                year: "Y",
+                month: "M",
+                week: "W",
+                list: "list",
+            },
+            multiMonthMaxColumns: 2,
+            timeZone: "local",
+            weekNumbers: true,
+            dayMaxEvents: true,
+            events: function (fetchInfo, successCallback, failureCallback) {
+                var generatedEvents = generateEvents(fetchInfo.start, fetchInfo.end);
+                successCallback(generatedEvents);
+            },
+            dayCellClassNames: function (cellInfo) {
+                var elementMonth = ((((cellInfo.date.getYear()*12+cellInfo.date.getMonth()))%5)+1)
+                var monthClass = 'knd-event-month-' + elementMonth;
+                return [ monthClass ]
+            },
+        }
+    );
     calendar.render();
 });
 
