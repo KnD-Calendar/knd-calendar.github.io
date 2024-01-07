@@ -128,7 +128,7 @@ function generateWarDates(startDate, endDate) {
             warEvents.push({
                 title: 'War',
                 start: new Date(possibleDate.setUTCHours(19, 0, 0)),
-                end: new Date(addDays(possibleDate, 2).setUTCHours(22, 0, 0)),
+                end: new Date(addDays(possibleDate, 3).setUTCHours(19, 0, 0)),
                 color: "#9b2226",
                 url: "../events/war"
             });
