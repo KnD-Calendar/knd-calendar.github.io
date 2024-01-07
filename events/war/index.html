@@ -9,29 +9,282 @@
     <title>War</title>
 </head>
 <body>
-    <div class="container vh-100 pt-5">
+    <div class="container vh-100 my-3">
         <div class="row d-flex justify-content-center align-items-center">
             <div class="col col-12 col-md-8 col-lg-6 h-100">
-                <div class="card h-50">
+                <div class="card my-2">
                     <div class="card-header">
                         <div class="row">
                             <div class="col col-2">
-                                <button class="btn btn-dark" onclick="history.back()">
+                                <a class="btn btn-dark" href="..">
                                     ⬅️ Back
-                                </button>
+                                </a>
                             </div>
                             <div class="col d-flex justify-content-center align-items-center">
                                 <h3 class="text-dark">⚔️ War ⚔️</h3>
                             </div>
-                            <div class="col col-2"></div>
+                            <div class="col col-2">
+                                <button type="button" class="btn btn-dark" data-bs-toggle="dropdown" aria-expanded="false">
+                                    📄 Index
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#basics">Basics</a></li>
+                                    <li><a class="dropdown-item" href="#times">Times</a></li>
+                                    <li><a class="dropdown-item" href="#declaring">Declaring</a></li>
+                                    <li><a class="dropdown-item" href="#matching">Matching</a></li>
+                                    <li><a class="dropdown-item" href="#announced-info">Announced Information</a></li>
+                                    <li><a class="dropdown-item" href="#frenzy-info">Frenzy Information</a></li>
+                                    <li><a class="dropdown-item" href="#during-frenzy">During Frenzy</a></li>
+                                    <li><a class="dropdown-item" href="#strip-setups">Strip Setups</a></li>
+                                    <li><a class="dropdown-item" href="#milestones">Milestones</a></li>
+                                    <li><a class="dropdown-item" href="#power-attacks">Power Attacks</a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                     <div class="card-body d-flex justify-content-center align-items-center">
-                        War
+                        <div class="col">
+                            <div class="row">
+                                <ul class="list-group px-2">
+                                    <li class="list-group-item" id="basics">
+                                        <h6>
+                                            Basics
+                                        </h6>
+                                        <div class="p-3">
+                                            War is an event where you attack other guilds members in order to gain points
+                                            and get rewards.  There have been many developments over the years in order
+                                            to optimize the points gained from each war, in order to make reaching
+                                            milestones as easy as possible.
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item" id="times">
+                                        <h6>
+                                            Times
+                                        </h6>
+                                        <div class="p-3">
+                                            War events run every other Friday from 19:00 UTC (<data value="1900" class="time-convert"></data>)
+                                            to Monday 19:00 UTC (<data value="1900" class="time-convert"></data>),
+                                            exactly 3 days.
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item" id="declaring">
+                                        <h6>
+                                            Declaring
+                                        </h6>
+                                        <div class="p-3">
+                                            Declaring is done by very specific people in the guild, known as the declare
+                                            team. The declares are done at specific times by the declare team, to try to
+                                            match up against ally guilds.  It is much easier (and usually only possible)
+                                            to get max points when matching up against and ally guild, because of
+                                            <a href="#strip-setups">strip setups.</a>  If you are not part of the declare
+                                            team, never hit the declare button, as it can prevent you from matching properly.
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item" id="matching">
+                                        <h6>
+                                            Matching
+                                        </h6>
+                                        <div class="p-3">
+                                            When matching against another guild, the declare team member who declared
+                                            becomes your guild's representative (or rep) for that war.  The rep will
+                                            announce in the war room when they either make contact with an allied rep,
+                                            or when they know that the matched guild is an anti guild.  When matching an
+                                            ally guild, the rep will announce some information about the war, such as:
+                                            <ul class="m-2">
+                                                <li>
+                                                    Whether the guild matched with anti or ally
+                                                </li>
+                                                <li>
+                                                    What the GM of the other guild is wearing (if allied)
+                                                </li>
+                                                <li>
+                                                    What time frenzy will occur (if allied)
+                                                </li>
+                                                <li>
+                                                    Frenzy "cap", or the max points the guild can have prior to frenzy (if allied)
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item" id="announced-info">
+                                        <h6>
+                                            Announced Information
+                                        </h6>
+                                        <div class="p-3">
+                                            When the rep announces information, there are some things you will want to do
+                                            if you want to be active in that war.  First, if you have weak armors, you
+                                            will want to equip an armor that is strong against whatever the GM is wearing.
+                                            Second, you may want to set a timer for frenzy.  The frenzy time will usually
+                                            be announced as something like ":55 this hour", or ":15 next hour".  These
+                                            mean that, for example, if it is currently 6:30 in your local time, that
+                                            frenzy will occur at 6:55 or 7:15 respectively.  For more information on
+                                            how frenzy works, please see <a href="#frenzy-info">frenzy info.</a>  Finally,
+                                            make sure to not attack prior to frenzy.  The declare team will coordinate
+                                            to make sure everything runs smoothly, but if someone attacks prior to frenzy
+                                            it can cause issues with triggering it, losing points for both guilds.
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item" id="frenzy-info">
+                                        <h6>
+                                            Frenzy Information
+                                        </h6>
+                                        <div class="p-3">
+                                            Frenzy is a part of wars in which everyone gains 20% extra points, allowing
+                                            everyone to maximize their points.  Specifically the way frenzy works is
+                                            that after there is 20 minutes left in the war, frenzy will trigger if the
+                                            warring guilds come within about 10% of each other's points.  An example is,
+                                            with 20 minutes left in a war, Guild A has 3000 points, and Guild B has 1500
+                                            points.  The guild rep for Guild B attacks 2 times against the GM for 760
+                                            points each time, giving Guild B 3020 points.  This results in frenzy
+                                            triggering for 10 minutes following the second attack.
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item" id="during-frenzy">
+                                        <h6>
+                                            During Frenzy
+                                        </h6>
+                                        <div class="p-3">
+                                            When frenzy occurs, someone from the declare team will tag everyone in the
+                                            war room, usually with "@All frenzy".  This is your cue to attack.  When you
+                                            attack, attack the Guild Master (GM) with a <a href="#strip-setups">strip setup</a>
+                                            to get max points.  The maximum points you can get during frenzy, without
+                                            using a potion, is 912 per attack, so if you are getting less than that, you
+                                            may need to fix your strip setup.  The best way to tell if you are getting max
+                                            points is to look at the result of your attack, and if you are getting 500
+                                            points for the attack, then you are getting max points.
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item" id="strip-setups">
+                                        <h6>
+                                            Strip Setups
+                                        </h6>
+                                        <div class="p-3">
+                                            <p>
+                                                The way to get maximum points during an attack is with a "strip setup".  A
+                                                strip setup usually consists of 1 strong armor (UA, Exclusive, or something
+                                                that is strong against the GM elements), and 2 Fusion Boost armors.
+                                            </p>
+                                            <div class="card my-2">
+                                                <img src="./img/strip-setup-ua.jpg" class="card-img-top" alt="UA Strip Setup">
+                                                <div class="card-body">
+                                                    <h6 class="card-title">UA Strip Setup</h6>
+                                                    <p class="card-text">
+                                                        Here is an example of a strong strip setup that could be used
+                                                        against any element, using a UA.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="card my-2">
+                                                <img src="./img/strip-setup-strong.jpg" class="card-img-top" alt="Strong Strip Setup">
+                                                <div class="card-body">
+                                                    <h6 class="card-title">Strong Strip Setup</h6>
+                                                    <p class="card-text">
+                                                        Here is an example of a strong strip setup that could be used
+                                                        against a GM wearing Earth/Air armor.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="card my-2">
+                                                <img src="./img/strip-setup-weak.jpg" class="card-img-top" alt="Weak Strip Setup">
+                                                <div class="card-body">
+                                                    <h6 class="card-title">Weak Strip Setup</h6>
+                                                    <p class="card-text">
+                                                        Here is an example of a weak strip setup that could be used
+                                                        against a GM wearing Earth/Air armor.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item" id="milestones">
+                                        <h6>
+                                            Milestones
+                                        </h6>
+                                        <div class="p-3">
+                                            As you progress through the game and start chasing the UA, you will be
+                                            collecting exclusive materials from wars.  The milestones where you get
+                                            exclusive materials are:
+                                            <ul class="m-2">
+                                                <li>
+                                                    105k points
+                                                </li>
+                                                <li>
+                                                    260k points
+                                                </li>
+                                                <li>
+                                                    475k points
+                                                </li>
+                                                <li>
+                                                    931k points
+                                                </li>
+                                                <li>
+                                                    1.825M points
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item" id="power-attacks">
+                                        <h6>
+                                            Power Attacks
+                                        </h6>
+                                        <div class="p-3">
+                                            Power attacking is an advanced strategy to get points fast, but only in
+                                            very specific scenarios.  Normally, the Power Attack button uses 4 energy,
+                                            but only gives you 3 attacks worth of points.  This means you would only get
+                                            75% of the points by doing a power attack.  However, there are some situations
+                                            where power attacking (also called PAing) can be useful.
+                                            <hr>
+                                            Imagine you have a Legendary II war potion.  This potion gives +40% points
+                                            for 30 battles.  If you were to PA with this potion active, you would get
+
+                                            <pre class="pt-3">(912 x 3) x 1.4 = 3830</pre>
+
+                                            points per battle, for a total of
+
+                                            <pre class="pt-3">3830 x 30 = 114900</pre>
+
+                                            total points, costing 120 energy.  Now imagine this
+                                            same scenario, but with regular attacks.  You attack 120 times, 30 of which
+                                            you have the +40% boost active.  This results in the first 30 attacks getting
+
+                                            <pre class="pt-3">912 x 1.4 = 1276</pre>
+
+                                            points per attack, and the last 90 attacks getting 912 points per attack
+                                            meaning a total of
+
+                                            <pre class="pt-3">(1276 x 30) + (912 x 90) = 120360</pre>
+
+                                            points.  In this case, it is not technically worth it to PA, but if we assume
+                                            each attach takes ~5 seconds, this leads to a 4x time speedup, or the difference
+                                            between attacking for 2.5 minutes by PAing, or the full 10 minutes of frenzy
+                                            with normal attacks.  This would allow you to get more points over the course
+                                            of the war.  Generally a good rule of thumb is that 45% or more potions are
+                                            worth it to PA, 40% may be worth it if you are trying to be fast, and
+                                            everything else should use regular attacks.
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var dataTags = document.querySelectorAll('data.time-convert');
+
+            dataTags.forEach(function (dataTag) {
+                var utcTime = parseInt(dataTag.getAttribute('value'), 10);
+                var utcDate = new Date();
+                utcDate.setUTCHours(utcTime / 100, utcTime % 100, 0, 0);
+                var localDate = new Date(utcDate.toLocaleString());
+                var localTimeString = localDate.toLocaleTimeString('en-US', {hour12: false, hour: 'numeric', minute: 'numeric', timeZoneName: 'short'});
+                var timeZoneString = Intl.DateTimeFormat().resolvedOptions().timeZone;
+                dataTag.innerHTML = localTimeString;
+            });
+        });
+    </script>
 </body>
 </html>
