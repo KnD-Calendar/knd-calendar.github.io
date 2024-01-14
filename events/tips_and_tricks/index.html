@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/x-icon" href="../../static/favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css' rel='stylesheet'>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <title>Heroic</title>
+</head>
+<body>
+    <div class="container vh-100 my-3">
+        <div class="row d-flex justify-content-center align-items-center">
+            <div class="col col-12 col-md-8 col-lg-6 h-100">
+                <div class="card my-2">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col col-2">
+                                <a class="btn btn-dark" href="..">
+                                    ⬅️ Back
+                                </a>
+                            </div>
+                            <div class="col d-flex justify-content-center align-items-center">
+                                <h3 class="text-dark">✨ Tips & Tricks ✨</h3>
+                            </div>
+                            <div class="col col-2">
+                                <button type="button" class="btn btn-dark" data-bs-toggle="dropdown" aria-expanded="false">
+                                    📄 Index
+                                </button>
+                                <ul class="dropdown-menu" id="index">
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body d-flex justify-content-center align-items-center">
+                        <div class="col">
+                            <div class="row">
+                                <ul class="list-group px-2">
+                                    <li class="list-group-item indexed" id="friend-codes">
+                                        <h6>
+                                            Friend Codes
+                                        </h6>
+                                        <div class="p-3">
+                                            Here is a list of friends you can add that have a UA armor that can be used
+                                            for <a href="../heroic#heroic-cheese">heroic cheese</a>.
+                                            <ul class="m-2">
+                                                <li><div class="fw-bold">LS BR7609</div>XBC-YCQ-BYM</li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var indexable = document.querySelectorAll('li.indexed');
+
+            indexable.forEach(function (item) {
+                var originalId = item.id;
+                var words = originalId.split('-');
+
+                var capitalizedWords = words.map(function (word) {
+                    return word.charAt(0).toUpperCase() + word.slice(1);
+                });
+                var indexName = capitalizedWords.join(' ');
+
+                var listItem = document.createElement('li');
+                var anchor = document.createElement('a');
+                anchor.setAttribute('class', 'dropdown-item');
+                anchor.setAttribute('href', '#' + originalId);
+                anchor.textContent = indexName;
+
+                listItem.appendChild(anchor);
+
+                var indexElement = document.getElementById('index');
+                indexElement.appendChild(listItem);
+            });
+        });
+    </script>
+</body>
+</html>

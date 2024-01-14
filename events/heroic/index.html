@@ -23,15 +23,154 @@
                             <div class="col d-flex justify-content-center align-items-center">
                                 <h3 class="text-dark">🏰 Heroic Mode 🏰</h3>
                             </div>
-                            <div class="col col-2"></div>
+                            <div class="col col-2">
+                                <button type="button" class="btn btn-dark" data-bs-toggle="dropdown" aria-expanded="false">
+                                    📄 Index
+                                </button>
+                                <ul class="dropdown-menu" id="index">
+                                </ul>
+                            </div>
                         </div>
                     </div>
                     <div class="card-body d-flex justify-content-center align-items-center">
-                        Heroic
+                        <div class="col">
+                            <div class="row">
+                                <ul class="list-group px-2">
+                                    <li class="list-group-item indexed" id="basics">
+                                        <h6>
+                                            Basics
+                                        </h6>
+                                        <div class="p-3">
+                                            Heroic is an event that is perfect for new players to get stronger.  In heroic,
+                                            your goal is to complete harder versions of the different stages to get materials
+                                            that go towards a pretty strong armor from last month.  The stages are split into
+                                            3 types:
+                                            <ul class="m-2">
+                                                <li class="fw-bold">Novice</li>
+                                                <li class="fw-bold">Intermediate</li>
+                                                <div class="ps-3">
+                                                    Novice and intermediate both have the same formula.  Each stage needs to be
+                                                    beaten 8 times to get a star crystal, and there are 6 star crystals used to
+                                                    craft the heroic armor.  There are 6 stages in each novice and intermediate.
+                                                    Therefore, you can beat the novice stages first, craft the heroic armor,
+                                                    then work on the intermediate stages in the time left so that you can make the
+                                                    + version of the heroic armor.
+                                                </div>
+                                                <li class="fw-bold">Hardcore</li>
+                                                <div class="ps-3">
+                                                    Hardcore has slightly harder stages, but each stage only needs to
+                                                    be beaten 1 time.  Once you beat a hardcore stage, you get heroic
+                                                    scrolls, which can be exchanged in the shop for an exclusive material,
+                                                    as well as the set for the heroic armor.
+                                                </div>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item indexed" id="heroic-cheese">
+                                        <h6>
+                                            Heroic Cheese
+                                        </h6>
+                                        <div class="p-3">
+                                            <p>
+                                                Heroic cheese is a strategy that is used to make heroic mode considerably easier,
+                                                and can be used by new players to clear almost the entirety of heroic mode
+                                                without having any armor requirements.  The only requirement is that you have
+                                                <a href="../tips_and_tricks#friend-codes">
+                                                    10 or more strong friends (preferably with the most recent UA)
+                                                </a>.
+                                            </p>
+                                            <p>
+                                                To do heroic cheese, the steps are:
+                                                <ul>
+                                                    <li>
+                                                        Enter the stage with 1 knight and 1 friend,
+                                                    </li>
+                                                    <li>
+                                                        Go through the stage until the friend is almost dead,
+                                                    </li>
+                                                    <li>
+                                                        Force close the game,
+                                                    </li>
+                                                    <li>
+                                                        Re-enter the game,
+                                                    </li>
+                                                    <li>
+                                                        Repeat until the stage is complete.
+                                                    </li>
+                                                </ul>
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item indexed" id="strategy">
+                                        <h6>
+                                            Strategy
+                                        </h6>
+                                        <div class="p-3">
+                                            <p>
+                                                Once you have 6 star crystals, you should immediately start crafting the
+                                                heroic armor.  It will take a few days to complete, and you need to have it
+                                                crafted, so you can level it up slightly to craft the + version.
+                                            </p>
+                                            <p>
+                                                Once you have fully collect all 12 star crystals, wait until your heroic
+                                                armor is done crafting, level it to roughly level 40, until you get a
+                                                notification telling you that the + version is craftable, then craft that.
+                                            </p>
+                                            <p>
+                                                Regarding heroic scrolls, it depends on what your goals are.  If you are
+                                                a new player trying to get stronger, but not going after the exclusive,
+                                                you should spend the scrolls first on the set for the heroic armor,
+                                                then silver coins are likely a good next choice.  For later game players,
+                                                priority is always to get the exclusive material, then it's up to preference
+                                                whether you get the coins, set, or other items.
+                                            </p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var dataTags = document.querySelectorAll('data.time-convert');
+
+            dataTags.forEach(function (dataTag) {
+                var utcTime = parseInt(dataTag.getAttribute('value'), 10);
+                var utcDate = new Date();
+                utcDate.setUTCHours(utcTime / 100, utcTime % 100, 0, 0);
+                var localDate = new Date(utcDate.toLocaleString());
+                var localTimeString = localDate.toLocaleTimeString('en-US', {hour12: false, hour: 'numeric', minute: 'numeric', timeZoneName: 'short'});
+                var timeZoneString = Intl.DateTimeFormat().resolvedOptions().timeZone;
+                dataTag.innerHTML = localTimeString;
+            });
+
+            var indexable = document.querySelectorAll('li.indexed');
+
+            indexable.forEach(function (item) {
+                var originalId = item.id;
+                var words = originalId.split('-');
+
+                var capitalizedWords = words.map(function (word) {
+                    return word.charAt(0).toUpperCase() + word.slice(1);
+                });
+                var indexName = capitalizedWords.join(' ');
+
+                var listItem = document.createElement('li');
+                var anchor = document.createElement('a');
+                anchor.setAttribute('class', 'dropdown-item');
+                anchor.setAttribute('href', '#' + originalId);
+                anchor.textContent = indexName;
+
+                listItem.appendChild(anchor);
+
+                var indexElement = document.getElementById('index');
+                indexElement.appendChild(listItem);
+            });
+        });
+    </script>
 </body>
 </html>

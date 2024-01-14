@@ -23,15 +23,140 @@
                             <div class="col d-flex justify-content-center align-items-center">
                                 <h3 class="text-dark">🐉 Raid 🐉</h3>
                             </div>
-                            <div class="col col-2"></div>
+                            <div class="col col-2">
+                                <button type="button" class="btn btn-dark" data-bs-toggle="dropdown" aria-expanded="false">
+                                    📄 Index
+                                </button>
+                                <ul class="dropdown-menu" id="index">
+                                </ul>
+                            </div>
                         </div>
                     </div>
                     <div class="card-body d-flex justify-content-center align-items-center">
-                        Raid
+                        <div class="col">
+                            <div class="row">
+                                <ul class="list-group px-2">
+                                    <li class="list-group-item indexed" id="basics">
+                                        <h6>
+                                            Basics
+                                        </h6>
+                                        <div class="p-3">
+                                            Raid is an event where High Commanders and above scout bosses for everyone
+                                            in the guild to attack for points.  The idea is simple, group up, and hit
+                                            it until it dies!
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item indexed" id="blitz-wars">
+                                        <h6>
+                                            Blitz Wars
+                                        </h6>
+                                        <div class="p-3">
+                                            Blitz raid is a type of raid event that is much quicker, and always comes
+                                            the day after a war ends.
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item indexed" id="times">
+                                        <h6>
+                                            Time (Raid)
+                                        </h6>
+                                        <div class="p-3">
+                                            Raid events run every other Friday from 19:00 UTC (<data value="1900" class="time-convert"></data>)
+                                            to Monday 19:00 UTC (<data value="1900" class="time-convert"></data>),
+                                            exactly 3 days.
+                                        </div>
+                                        <h6>
+                                            Time (Blitz Raid)
+                                        </h6>
+                                        <div class="p-3">
+                                            Blitz Raid events run the day after a <a href="../war">War event</a> ends,
+                                            Tuesday from 19:00 UTC (<data value="1900" class="time-convert"></data>) to Wednesday
+                                            22:00 UTC (<data value="1900" class="time-convert"></data>), 1 day and 3 hours.
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item indexed" id="strategy">
+                                        <h6>
+                                            Time (Raid)
+                                        </h6>
+                                        <p>
+                                            For a new player, your best plan of attack is to go after level 2s until you can
+                                            defeat them in 1 attack, then try 3s to see if you get more points on 3s.  Once
+                                            you get more points on 3s than 2s, keep attacking them.
+                                        </p>
+                                        <p>
+                                            When attacking, it is usually better to have an armor with no weakness and
+                                            no strength against the raid elements, rather than an armor with a strength
+                                            and a weakness against the raid elements, unless there is a large gap in stats.
+                                        </p>
+                                        <p>
+                                            For pets, you will want to use <a href="../pets#shatter-shield">Shatter Shield pets</a>
+                                            for low level bosses (2s/3s), and anything higher you will want
+                                            <a href="../pets#special-regeneration">Special Regeneration</a>.
+                                            <a href="../pets">See the pets page for more information on pets.</a>
+                                        </p>
+                                    </li>
+                                    <li class="list-group-item indexed" id="milestones">
+                                        <h6>
+                                            Milestones
+                                        </h6>
+                                        <div class="p-3">
+                                            As you progress through the game and start chasing the UA, you will be
+                                            collecting exclusive materials from raids.  The milestones where you get
+                                            exclusive materials are:
+                                            <ul class="m-2">
+                                                <li>
+                                                    45k points
+                                                </li>
+                                                <li>
+                                                    200k points
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var dataTags = document.querySelectorAll('data.time-convert');
+
+            dataTags.forEach(function (dataTag) {
+                var utcTime = parseInt(dataTag.getAttribute('value'), 10);
+                var utcDate = new Date();
+                utcDate.setUTCHours(utcTime / 100, utcTime % 100, 0, 0);
+                var localDate = new Date(utcDate.toLocaleString());
+                var localTimeString = localDate.toLocaleTimeString('en-US', {hour12: false, hour: 'numeric', minute: 'numeric', timeZoneName: 'short'});
+                var timeZoneString = Intl.DateTimeFormat().resolvedOptions().timeZone;
+                dataTag.innerHTML = localTimeString;
+            });
+
+            var indexable = document.querySelectorAll('li.indexed');
+
+            indexable.forEach(function (item) {
+                var originalId = item.id;
+                var words = originalId.split('-');
+
+                var capitalizedWords = words.map(function (word) {
+                    return word.charAt(0).toUpperCase() + word.slice(1);
+                });
+                var indexName = capitalizedWords.join(' ');
+
+                var listItem = document.createElement('li');
+                var anchor = document.createElement('a');
+                anchor.setAttribute('class', 'dropdown-item');
+                anchor.setAttribute('href', '#' + originalId);
+                anchor.textContent = indexName;
+
+                listItem.appendChild(anchor);
+
+                var indexElement = document.getElementById('index');
+                indexElement.appendChild(listItem);
+            });
+        });
+    </script>
 </body>
 </html>
