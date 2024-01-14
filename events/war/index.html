@@ -27,17 +27,7 @@
                                 <button type="button" class="btn btn-dark" data-bs-toggle="dropdown" aria-expanded="false">
                                     📄 Index
                                 </button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#basics">Basics</a></li>
-                                    <li><a class="dropdown-item" href="#times">Times</a></li>
-                                    <li><a class="dropdown-item" href="#declaring">Declaring</a></li>
-                                    <li><a class="dropdown-item" href="#matching">Matching</a></li>
-                                    <li><a class="dropdown-item" href="#announced-info">Announced Information</a></li>
-                                    <li><a class="dropdown-item" href="#frenzy-info">Frenzy Information</a></li>
-                                    <li><a class="dropdown-item" href="#during-frenzy">During Frenzy</a></li>
-                                    <li><a class="dropdown-item" href="#strip-setups">Strip Setups</a></li>
-                                    <li><a class="dropdown-item" href="#milestones">Milestones</a></li>
-                                    <li><a class="dropdown-item" href="#power-attacks">Power Attacks</a></li>
+                                <ul class="dropdown-menu" id="index">
                                 </ul>
                             </div>
                         </div>
@@ -46,7 +36,7 @@
                         <div class="col">
                             <div class="row">
                                 <ul class="list-group px-2">
-                                    <li class="list-group-item" id="basics">
+                                    <li class="list-group-item indexed" id="basics">
                                         <h6>
                                             Basics
                                         </h6>
@@ -57,17 +47,51 @@
                                             milestones as easy as possible.
                                         </div>
                                     </li>
-                                    <li class="list-group-item" id="times">
+                                    <li class="list-group-item indexed" id="blitz-wars">
                                         <h6>
-                                            Times
+                                            Blitz Wars
+                                        </h6>
+                                        <div class="p-3">
+                                            Blitz war is a type of war event that is much quicker, and always comes
+                                            the day after a raid ends.
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item indexed" id="set-blitz">
+                                        <h6>
+                                            Set Blitz
+                                        </h6>
+                                        <div class="p-3">
+                                            Set blitz wars are a special blitz war, the first blitz war of every month
+                                            is always a set blitz.  Set blitz wars are the cheapest way to get the
+                                            exclusive armor set for that month, as well as materials for 1/2 the UA set.
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item indexed" id="times">
+                                        <h6>
+                                            Time (War)
                                         </h6>
                                         <div class="p-3">
                                             War events run every other Friday from 19:00 UTC (<data value="1900" class="time-convert"></data>)
                                             to Monday 19:00 UTC (<data value="1900" class="time-convert"></data>),
                                             exactly 3 days.
                                         </div>
+                                        <h6>
+                                            Time (Blitz War)
+                                        </h6>
+                                        <div class="p-3">
+                                            Blitz War events run the day after a <a href="../raid">Raid event</a> ends,
+                                            Tuesday from 19:00 UTC (<data value="1900" class="time-convert"></data>) to Wednesday
+                                            22:00 UTC (<data value="1900" class="time-convert"></data>), 1 day and 3 hours.
+                                        </div>
+                                        <h6>
+                                            Time (Set Blitz)
+                                        </h6>
+                                        <div class="p-3">
+                                            Set Blitz events run at the same time as regular blitz wars, but are the
+                                            first blitz war of the month.
+                                        </div>
                                     </li>
-                                    <li class="list-group-item" id="declaring">
+                                    <li class="list-group-item indexed" id="declaring">
                                         <h6>
                                             Declaring
                                         </h6>
@@ -80,7 +104,7 @@
                                             team, never hit the declare button, as it can prevent you from matching properly.
                                         </div>
                                     </li>
-                                    <li class="list-group-item" id="matching">
+                                    <li class="list-group-item indexed" id="matching">
                                         <h6>
                                             Matching
                                         </h6>
@@ -106,7 +130,7 @@
                                             </ul>
                                         </div>
                                     </li>
-                                    <li class="list-group-item" id="announced-info">
+                                    <li class="list-group-item indexed" id="announced-info">
                                         <h6>
                                             Announced Information
                                         </h6>
@@ -124,7 +148,7 @@
                                             it can cause issues with triggering it, losing points for both guilds.
                                         </div>
                                     </li>
-                                    <li class="list-group-item" id="frenzy-info">
+                                    <li class="list-group-item indexed" id="frenzy-info">
                                         <h6>
                                             Frenzy Information
                                         </h6>
@@ -139,7 +163,7 @@
                                             triggering for 10 minutes following the second attack.
                                         </div>
                                     </li>
-                                    <li class="list-group-item" id="during-frenzy">
+                                    <li class="list-group-item indexed" id="during-frenzy">
                                         <h6>
                                             During Frenzy
                                         </h6>
@@ -154,7 +178,7 @@
                                             points for the attack, then you are getting max points.
                                         </div>
                                     </li>
-                                    <li class="list-group-item" id="strip-setups">
+                                    <li class="list-group-item indexed" id="strip-setups">
                                         <h6>
                                             Strip Setups
                                         </h6>
@@ -196,7 +220,7 @@
                                             </div>
                                         </div>
                                     </li>
-                                    <li class="list-group-item" id="milestones">
+                                    <li class="list-group-item indexed" id="milestones">
                                         <h6>
                                             Milestones
                                         </h6>
@@ -223,7 +247,7 @@
                                             </ul>
                                         </div>
                                     </li>
-                                    <li class="list-group-item" id="power-attacks">
+                                    <li class="list-group-item indexed" id="power-attacks">
                                         <h6>
                                             Power Attacks
                                         </h6>
@@ -283,6 +307,29 @@
                 var localTimeString = localDate.toLocaleTimeString('en-US', {hour12: false, hour: 'numeric', minute: 'numeric', timeZoneName: 'short'});
                 var timeZoneString = Intl.DateTimeFormat().resolvedOptions().timeZone;
                 dataTag.innerHTML = localTimeString;
+            });
+
+            var indexable = document.querySelectorAll('li.indexed');
+
+            indexable.forEach(function (item) {
+                var originalId = item.id;
+                var words = originalId.split('-');
+
+                var capitalizedWords = words.map(function (word) {
+                    return word.charAt(0).toUpperCase() + word.slice(1);
+                });
+                var indexName = capitalizedWords.join(' ');
+
+                var listItem = document.createElement('li');
+                var anchor = document.createElement('a');
+                anchor.setAttribute('class', 'dropdown-item');
+                anchor.setAttribute('href', '#' + originalId); // Assuming you want to link to the original ID
+                anchor.textContent = indexName;
+
+                listItem.appendChild(anchor);
+
+                var indexElement = document.getElementById('index');
+                indexElement.appendChild(listItem);
             });
         });
     </script>

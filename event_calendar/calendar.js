@@ -165,7 +165,7 @@ function generateBlitzRaidDates(startDate, endDate) {
                 start: new Date(possibleDate.setUTCHours(19, 0, 0)),
                 end: new Date(addDays(possibleDate, 1).setUTCHours(22, 0, 0)),
                 color: "#0a9396",
-                url: "../events/blitz_raid"
+                url: "../events/raid"
             });
         }
         possibleDate = addDays(possibleDate, 1);
@@ -200,7 +200,7 @@ function generateBlitzWarDates(startDate, endDate) {
                 end: new Date(addDays(possibleDate, 1).setUTCHours(22, 0, 0)),
                 color: "#bb3e03",
                 borderColor: "#1F51FF",
-                url: "../events/set_blitz"
+                url: "../events/war#set-blitz"
             });
             possibleDate = addDays(possibleDate, 1);
         }
@@ -210,7 +210,7 @@ function generateBlitzWarDates(startDate, endDate) {
                 start: new Date(possibleDate.setUTCHours(19, 0, 0)),
                 end: new Date(addDays(possibleDate, 1).setUTCHours(22, 0, 0)),
                 color: "#bb3e03",
-                url: "../events/blitz_war"
+                url: "../events/war#blitz-wars"
             });
         }
         possibleDate = addDays(possibleDate, 1);
